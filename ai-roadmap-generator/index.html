@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Learning Roadmap Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- PDF Export Libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>PathAI</span>
+            </div>
+            
+            <button id="new-roadmap-btn" class="btn-primary full-width">
+                <i class="fa-solid fa-plus"></i> New Roadmap
+            </button>
+
+            <div class="saved-roadmaps">
+                <h3>Saved Paths</h3>
+                <ul id="saved-list">
+                    <!-- Saved items will go here -->
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="btn-icon">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button id="sidebar-toggle" class="mobile-only btn-icon">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <h1>AI Learning Roadmap</h1>
+                <div class="actions">
+                    <button id="save-btn" class="btn-secondary" disabled>
+                        <i class="fa-solid fa-floppy-disk"></i> Save
+                    </button>
+                    <button id="export-btn" class="btn-secondary" disabled>
+                        <i class="fa-solid fa-file-pdf"></i> Export
+                    </button>
+                </div>
+            </header>
+
+            <section class="hero-search" id="hero-section">
+                <div class="hero-content">
+                    <h2>Master Any Skill with AI</h2>
+                    <p>Enter a topic to generate a comprehensive, step-by-step learning path.</p>
+                    <div class="input-group">
+                        <input type="text" id="topic-input" placeholder="e.g., Python, Machine Learning, Digital Marketing">
+                        <button id="generate-btn">Generate</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading State -->
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing topic & crafting roadmap...</p>
+                <div class="skeleton-container">
+                    <div class="skeleton-header"></div>
+                    <div class="skeleton-block"></div>
+                    <div class="skeleton-block"></div>
+                </div>
+            </div>
+
+            <!-- Roadmap Display -->
+            <div id="roadmap-container" class="roadmap-view hidden">
+                <div id="roadmap-header">
+                    <h2 id="roadmap-title">Topic Name</h2>
+                    <p id="roadmap-overview">Overview text goes here...</p>
+                </div>
+
+                <div class="roadmap-grid">
+                    <div class="roadmap-column">
+                        <h3><i class="fa-solid fa-seedling"></i> Beginner</h3>
+                        <div class="roadmap-items" id="beginner-items"></div>
+                    </div>
+                    <div class="roadmap-column">
+                        <h3><i class="fa-solid fa-tree"></i> Intermediate</h3>
+                        <div class="roadmap-items" id="intermediate-items"></div>
+                    </div>
+                    <div class="roadmap-column">
+                        <h3><i class="fa-solid fa-mountain"></i> Advanced</h3>
+                        <div class="roadmap-items" id="advanced-items"></div>
+                    </div>
+                </div>
+
+                <div class="resources-section">
+                    <h3><i class="fa-solid fa-book-open"></i> Recommended Resources</h3>
+                    <ul id="resources-list"></ul>
+                </div>
+
+                <div class="projects-section">
+                    <h3><i class="fa-solid fa-laptop-code"></i> Project Ideas</h3>
+                    <div class="project-cards" id="projects-list"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="storage.js"></script>
+    <script src="ai.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
