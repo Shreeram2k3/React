@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- React cdn -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM (official) -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel (official CDN for JSX support) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+      let a =10;
+      let b=20;
+
+      const div = (
+          <div>
+            <button>Hello</button>
+            <p>This para is rendered with React Babel</p>
+            <p>Sum of {a}+{b} is {a+b}</p>
+         </div>
+          
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render("Welcome to Official React CDN Version");
+      root.render(div);
+
+    </script>
+  </body>
+</html>

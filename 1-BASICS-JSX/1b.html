@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="rootDiv"></div>
+
+   <!-- React cdn -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM (official) -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel (official CDN for JSX support) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" >
+
+      const cart = (
+        <div>
+            <h3>Cotton Shirt</h3>
+            <h5>Quantity:{1}</h5>
+            <p>price: ${10.5}</p>
+        </div>
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("rootDiv"));
+      root.render(cart);
+
+    </script>
+
+
+</body>
+</html>

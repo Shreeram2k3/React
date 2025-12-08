@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>React Basics</title>
-  </head>
-  <body>
-    <div id="root"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1a</title>
+</head>
+<body>
 
-    <!-- React (official) -->
+  <div id="Rootdiv">
+
+  </div>
+
+   <!-- React cdn -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
 
     <!-- React DOM (official) -->
@@ -17,8 +21,12 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render("Welcome to Official React CDN Version");
+
+       const btn = <button>Good Job!</button>
+
+      const root = ReactDOM.createRoot(document.getElementById("Rootdiv"));
+      root.render(btn);
+
     </script>
-  </body>
+</body>
 </html>
