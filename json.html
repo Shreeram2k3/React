@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON</title>
+</head>
+<body style="background-color: black; color: white;">
+  
+  <h1>Score buttons</h1>
+
+  <button onclick="win()">WON</button>
+  <button onclick="loss()">LOSS</button>
+  <button onclick="tie()">TIE</button>
+  <br>
+  <br>
+  <hr>
+
+  <h2>SCORE CARD</h2>
+
+  <div class="scoreElem"></div><br>
+
+  <button onclick="reset()">reset score</button>
+
+
+  <script>
+    let score= JSON.parse(localStorage.getItem("score"))|| {
+      win:0,
+      loss:0,
+      tie:0
+    };
+
+    function win()
+    {
+      score.win++;
+      updateScore();
+    }
+    function loss()
+    {
+      score.loss++;
+      updateScore();
+    }
+    function tie()
+    {
+      score.tie++;
+      updateScore();
+    }
+
+    function updateScore()
+    {
+      document.querySelector(".scoreElem").innerHTML=`
+        WIN: ${score.win}\n LOSS:${score.loss}\nTIE:${score.tie}
+      `;
+      localStorage.setItem("score",JSON.stringify(score));
+    }
+
+    function reset()
+    {
+      localStorage.removeItem("score");
+      score ={win:0, loss:0,tie:0};
+      updateScore();
+    }
+
+    updateScore();
+
+    
+  </script>
+
+</body>
+</html>

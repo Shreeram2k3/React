@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>max in a array</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+
+  <h2>Find max in a array</h2>
+  <button onclick="findMax()">Add </button>
+  
+  <div class="arrDiv"></div>
+  <div class="ansDiv"></div>
+
+  <script>
+    function findMax()
+    {
+      let n = prompt("Enter the number of elements in an Array");
+
+      let arr = [];
+
+      for(let i=0; i<n;i++)
+      {
+        let num= prompt(`Enter the elem`);
+        arr.push(num);
+      }
+
+      let max= arr[0];
+      for(let i=0;i<n;i++)
+      {
+        if(arr[i]>max)max=arr[i];
+      }
+
+      document.querySelector(".arrDiv").innerHTML=`The elements in the array are ${arr}`;
+      document.querySelector(".ansDiv").innerHTML=`The max element in the array is ${max}`;
+
+
+    }
+  </script>
+
+</body>
+</html>

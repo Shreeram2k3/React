@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Event Handling and CSS Example</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 200px;
+            font-size: 22px;
+            border: 2px solid black;
+        }
+
+        #inputField {
+            margin-top: 20px;
+            padding: 8px;
+            width: 200px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2 id="title">jQuery Event Handling Example</h2>
+
+<div id="box">Try Events</div>
+
+<script>
+$(document).ready(function(){
+
+    // 1. Mouse Enter
+    $("#box").mouseenter(function(){
+        $("#box").css("background-color", "green");
+    });
+
+    // 2. Mouse Leave
+    $("#box").mouseleave(function(){
+        $("#box").css("background-color", "lightblue");
+    });
+
+    // 3. Click Event
+    $("#box").click(function(){
+        $("#box").css({
+            "background-color": "orange",
+            "color": "white",
+            "border-radius": "20px"
+        });
+        $("#title").css("color", "red");
+    });
+
+    // 4. Double Click Event
+    $("#box").dblclick(function(){
+        $("#box").css({
+            "background-color": "purple",
+            "color": "yellow"
+        });
+    });
+
+    // 5. Hover Event (combined enter + leave)
+    $("#box").hover(
+        function(){ $("#box").css("border", "5px solid black"); },
+        function(){ $("#box").css("border", "2px solid black"); }
+    );
+
+    
+
+});
+</script>
+
+</body>
+</html>

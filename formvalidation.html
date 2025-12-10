@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color: black; color: white;">
+  <form name="form" onsubmit=" return validate()">
+      Name: <input type="text" name="name" id=""><br><br>
+      phone: <input type="text" name="phone" id=""><br><br>
+      email: <input type="text" name="email" id=""><br><br>
+
+      cardNumber: <input type="text" name="cNumber" id=""><br><br>
+      expiry: <input type="text" name="expiry" id=""><br><br>
+
+      <button>Submit</button>
+  </form>
+
+  <script>
+    function validate()
+    {
+      let name = document.forms["form"]["name"].value;
+      let phone = document.forms["form"]["phone"].value;
+      let email = document.forms["form"]["email"].value;
+      let cNumber = document.forms["form"]["cNumber"].value;
+      let expiry = document.forms["form"]["expiry"].value;
+
+      if(name=="")
+        {
+          alert("enter a name");
+          return false;
+        }
+
+      if(!/^\d{10}$/.test(phone))
+      {
+        alert("Enter a 10 digit phone number");
+        return false;
+      }
+
+      if(!email.includes("@"))
+      {
+        alert("enter a valid email");
+        return false;
+      }
+
+      if(!/^\d{16}$/.test(cNumber))
+      {
+        alert("Enter a 16 digit num");
+        return false;
+      }
+
+      if(!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiry))
+      {
+        alert("give MM/YY");
+        return false;
+      }
+
+      return true;
+
+    }
+  </script>
+
+</body>
+</html>
